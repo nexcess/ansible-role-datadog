@@ -17,5 +17,5 @@ datadog_base_checks:
           - "lo0"
 datadog_config:
   hostname: "{{ inventory_hostname }}"
-  tags: "system:{{ nex_project }},role:{{ group_names[0] }}"
-  log_level: "ERROR"
+  tags: "project:{{ nex_project }},zone:{{ nex_zone }},role:{{ group_names[0] }}"
+  log_level: "INFO"
