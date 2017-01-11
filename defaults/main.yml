@@ -2,10 +2,6 @@
 
 datadog_enabled: "'{{ nex_env }}' == 'prod'"
 datadog_api_key: "{{ vault_datadog_api_key }}"
-datadog_config:
-  hostname: "{{ inventory_hostname }}"
-  tags: "system:{{ nex_project }}"
-  log_level: "ERROR"
 datadog_role_checks: {}
 datadog_base_checks:
   disk:
@@ -19,3 +15,7 @@ datadog_base_checks:
         excluded_interfaces:
           - "lo"
           - "lo0"
+datadog_config:
+  hostname: "{{ inventory_hostname }}"
+  tags: "system:{{ nex_project }},role:{{ group_names[0] }}"
+  log_level: "ERROR"
