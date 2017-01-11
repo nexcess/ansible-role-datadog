@@ -16,4 +16,4 @@ Essentially any of the Datadog.data/defaults/mail.yml vars are valid.  We don't 
 
 ## License
 
-Proprietary
+MIT
