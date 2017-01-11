@@ -13,4 +13,3 @@ galaxy_info:
 dependencies:
   - name: "Datadog.datadog"
     src: "git@github.com:DataDog/ansible-datadog.git"
-    datadog_checks: "{{ datadog_base_checks | combine( datadog_role_checks ) }}"
