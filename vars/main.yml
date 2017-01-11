@@ -1,0 +1,6 @@
+---
+
+datadog_config:
+  hostname: "{{ inventory_hostname }}"
+  tags: "project:{{ nex_project }},zone:{{ nex_zone }},role:{{ group_names[0] }}"
+  log_level: "INFO"
