@@ -2,10 +2,6 @@
 
 datadog_enabled: "'{{ nex_env }}' == 'prod'"
 datadog_api_key: "{{ vault_datadog_api_key }}"
-datadog_config:
-  hostname: "{{ inventory_hostname }}"
-  tags: "project:{{ nex_project }},zone:{{ nex_zone }},role:{{ group_names[0] }}"
-  log_level: "INFO"
 datadog_base_checks:
   disk:
     init_config:
@@ -19,4 +15,4 @@ datadog_base_checks:
           - "lo"
           - "lo0"
 datadog_role_checks: {}
-datadog_checks: "{{ datadog_base_checks | combine( datadog_role_checks ) }}"
+datadog_checks: "{{ datadog_base_checks | combine( datadog_role_checks, recursive=true ) }}"
