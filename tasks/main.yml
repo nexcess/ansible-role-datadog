@@ -7,4 +7,7 @@
     owner="{{ datadog_user }}"
     group="{{ datadog_group }}"
     mode="0644"
+
+- name: Install The Beanstalkc Python Client
+  command: /opt/datadog-agent/embedded/bin/pip install beanstalkc
   notify: restart datadog-agent
