@@ -1,18 +1,3 @@
 ---
 
-datadog_enabled: "'{{ nex_env }}' == 'prod'"
-datadog_api_key: "{{ vault_datadog_api_key }}"
-datadog_base_checks:
-  disk:
-    init_config:
-    instances:
-      - use_mount: yes
-  network:
-    init_config:
-    instances:
-      - collect_connection_state: false
-        excluded_interfaces:
-          - "lo"
-          - "lo0"
 datadog_role_checks: {}
-datadog_checks: "{{ datadog_base_checks | combine( datadog_role_checks, recursive=true ) }}"
