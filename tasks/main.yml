@@ -1,0 +1,10 @@
+---
+
+- name: Publish The Beanstalkd Check
+  copy:
+    src="checks.d/beanstalkd.py"
+    dest="/etc/dd-agent/checks.d"
+    owner="{{ datadog_user }}"
+    group="{{ datadog_group }}"
+    mode="0644"
+  notify: restart datadog-agent
