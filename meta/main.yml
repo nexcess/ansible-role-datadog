@@ -12,4 +12,4 @@ galaxy_info:
         - "7"
 dependencies:
   - name: "Datadog.datadog"
-    src: "git@github.com:DataDog/ansible-datadog.git"
+    src: "git+git@github.com:DataDog/ansible-datadog.git"
