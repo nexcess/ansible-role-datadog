@@ -11,12 +11,6 @@ datadog_base_checks:
     init_config: {}
     instances:
       - use_mount: yes
-  dns:
-    init_config: {}
-    instances:
-      - hostname: "www.nexcess.net"
-        nameserver: "{{ ansible_dns.nameservers[0] | default('208.69.120.201') }}"
-        timeout: 8
   network:
     init_config: {}
     instances:
@@ -28,4 +22,10 @@ datadog_base_checks:
     init_config: {}
     instances:
       - offset_threshold: 60
+  dns:
+    init_config: {}
+    instances:
+      - hostname: "www.nexcess.net"
+        nameserver: "{{ ansible_dns.nameservers[0] }}"
+        timeout: 8
 datadog_checks: "{{ datadog_base_checks | combine( datadog_role_checks, recursive=true ) }}"
