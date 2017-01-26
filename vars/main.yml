@@ -15,7 +15,7 @@ datadog_base_checks:
     init_config: {}
     instances:
       - hostname: "www.nexcess.net"
-        nameserver: "\"{{ ansible_dns.nameservers[0] | default('208.69.120.201') }}\""
+        nameserver: "{{ ansible_dns.nameservers[0] | default('208.69.120.201') }}"
         timeout: 8
   network:
     init_config: {}
