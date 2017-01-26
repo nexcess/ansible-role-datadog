@@ -3,8 +3,8 @@
 datadog_enabled: "'{{ nex_env }}' == 'prod'"
 datadog_api_key: "{{ vault_datadog_api_key }}"
 datadog_config:
-  hostname: "{{ inventory_hostname }}"
-  tags: "project:{{ nex_project }},zone:{{ nex_zone }},role:{{ group_names[0] }}"
+  hostname: "{{ inventory_hostname | replace( 'nexcess.net', '' ) }}"
+  tags: "division:{{ nex_division | default('nexcess') }},project:{{ nex_project }},zone:{{ nex_zone }},role:{{ group_names[0] }}"
   log_level: "INFO"
 datadog_base_checks:
   disk:
