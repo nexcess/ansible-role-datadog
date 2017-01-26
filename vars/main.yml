@@ -8,7 +8,7 @@ datadog_config:
   log_level: "INFO"
 datadog_base_checks:
   disk:
-    init_config: {}
+    init_config: ""
     instances:
       - use_mount: yes
   dns:
