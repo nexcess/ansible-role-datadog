@@ -11,6 +11,11 @@ datadog_base_checks:
     init_config: {}
     instances:
       - use_mount: yes
+  dns:
+    init_config: {}
+    instances:
+      - hostname: "www.nexcess.net"
+        timeout: 8
   network:
     init_config: {}
     instances:
