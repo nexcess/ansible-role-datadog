@@ -25,4 +25,8 @@ datadog_base_checks:
         excluded_interfaces:
           - "lo"
           - "lo0"
+  ntp:
+    init_config:
+    instances:
+      - offset_threshold: 60
 datadog_checks: "{{ datadog_base_checks | combine( datadog_role_checks, recursive=true ) }}"
