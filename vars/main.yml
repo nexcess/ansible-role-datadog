@@ -13,7 +13,6 @@ datadog_base_checks:
       - use_mount: yes
   dns:
     init_config:
-    default_timeout: 4
     instances:
       - hostname: "www.nexcess.net"
         nameserver: "{{ ansible_dns.nameservers[0] }}"
