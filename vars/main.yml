@@ -6,6 +6,7 @@ datadog_config:
   hostname: "{{ inventory_hostname | replace( '.nexcess.net', '' ) }}"
   tags: "division:{{ nex_division | default('nexcess') }},project:{{ nex_project }},zone:{{ nex_zone }},role:{{ group_names[0] }}"
   log_level: "INFO"
+  default_integration_http_timeout: 30
 datadog_base_checks:
   disk:
     init_config: {}
