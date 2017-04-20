@@ -10,4 +10,7 @@
 
 - name: Install The Beanstalkc Python Client
   command: /opt/datadog-agent/embedded/bin/pip install beanstalkc
+
+- name: Restart DD Agent
+  command: /bin/true
   notify: restart datadog-agent
