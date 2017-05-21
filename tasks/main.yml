@@ -24,7 +24,7 @@
 #  file:
 #    path="{{ item.path }}"
 #    state="absent"
-  with_items: dd_conf.files
+  with_items: "{{ dd_conf.files }}"
   when: datadog_purge_existing_checks
 
 - name: Restart DD Agent
