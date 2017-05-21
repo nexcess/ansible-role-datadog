@@ -11,6 +11,25 @@
 - name: Install The Beanstalkc Python Client
   command: /opt/datadog-agent/embedded/bin/pip install beanstalkc
 
+- name: Gather Existing Check List
+  find:
+    paths="/etc/dd-agent/conf.d"
+    patterns="*.yaml,*.yml"
+  register: dd_conf_files
+  when: datadog_purge_existing_checks
+
+- name: Debug
+  debug:
+    var=dd_conf_files
+  when: datadog_purge_existing_checks
+
+- name: Purge Any Existing Checks
+  file:
+    path="{{ item }}"
+    state="absent"
+  with_items: dd_conf_files
+  when: datadog_purge_existing_checks
+
 - name: Restart DD Agent
   command: /bin/true
   notify: restart datadog-agent
