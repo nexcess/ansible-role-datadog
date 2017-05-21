@@ -1,3 +1,4 @@
 ---
 
 datadog_role_checks: {}
+datadog_purge_existing_checks: false
