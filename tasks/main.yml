@@ -15,14 +15,14 @@
   find:
     paths="/etc/dd-agent/conf.d"
     patterns="*.yaml,*.yml"
-  register: dd_conf_files
+  register: dd_conf
   when: datadog_purge_existing_checks
 
 - name: Purge Any Existing Checks
   file:
     path="{{ item.path }}"
     state="absent"
-  with_items: dd_conf_files
+  with_items: dd_conf.files
   when: datadog_purge_existing_checks
 
 - name: Restart DD Agent
