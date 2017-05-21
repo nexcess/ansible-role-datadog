@@ -19,9 +19,11 @@
   when: datadog_purge_existing_checks
 
 - name: Purge Any Existing Checks
-  file:
-    path="{{ item.path }}"
-    state="absent"
+  debug:
+    var=item
+#  file:
+#    path="{{ item.path }}"
+#    state="absent"
   with_items: dd_conf.files
   when: datadog_purge_existing_checks
 
