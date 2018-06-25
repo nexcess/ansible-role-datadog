@@ -3,7 +3,7 @@
 - name: Publish The Beanstalkd Check
   copy:
     src="checks.d/beanstalkd.py"
-    dest="/etc/dd-agent/checks.d"
+    dest="/etc/datadog-agent/checks.d"
     owner="{{ datadog_user }}"
     group="{{ datadog_group }}"
     mode="0644"
@@ -13,7 +13,7 @@
 
 #- name: Gather Existing Check List
 #  find:
-#    paths="/etc/dd-agent/conf.d"
+#    paths="/etc/datadog-agent/conf.d"
 #    patterns="*.yaml,*.yml"
 #  register: dd_conf
 #  when: datadog_purge_existing_checks
