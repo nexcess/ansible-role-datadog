@@ -2,11 +2,11 @@
 
 - stat:
     path: "/etc/dd-agent"
-    register: dd_agent
+  register: dd_agent
 
 - stat:
     path: "/etc/datadog-agent"
-    register: datadog_agent
+  register: datadog_agent
 
 - name: Publish The Beanstalkd Check (dd-agent)
   copy:
